@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @garden %>
+
+
+<div id="gardens">
+  <% @plants.each do |plant| %>
+  <div class="card">
+    <img src="<%= plant.image %>" class="card-img-top">
+    <h5 class="card-title"><%= plant.name %></h5>
+  </div>
+    <% end %>
+</div>
+
+<%= render "form", partial: [@garden, @plant] %>
+
+<div>
+  <%= link_to "Edit this garden", edit_garden_path(@garden) %> |
+  <%= link_to "Back to gardens", gardens_path %>
+
+  <%= button_to "Destroy this garden", @garden, method: :delete %>
+</div>

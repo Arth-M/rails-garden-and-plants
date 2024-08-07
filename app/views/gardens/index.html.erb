@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Gardens</h1>
+
+<div id="gardens">
+  <% @gardens.each do |garden| %>
+
+    <div id="<%= dom_id garden %>" class="card" style="width: 18rem;">
+      <img src="<%= garden.image %>" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title"><%= garden.name %></h5>
+        <%= link_to "Show this garden", garden_path(garden), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New garden", new_garden_path %>
